@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb5dp70v7xfkv"]
+
+[ext_resource type="Texture2D" uid="uid://bm5ktyys2yl0c" path="res://icon.svg" id="1_hyk8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vom5j"]
+size = Vector2(1156, 125)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iuonh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hyk8p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k2fmo"]
+radius = 61.0328
+
+[node name="Main" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(564.5, 566.5)
+rotation = -0.15708
+shape = SubResource("RectangleShape2D_vom5j")
+debug_color = Color(0.705983, 0.274123, 0.992792, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+material = SubResource("CanvasItemMaterial_iuonh")
+position = Vector2(572.5, 566.5)
+rotation = -0.15708
+scale = Vector2(-1171, 95)
+texture = SubResource("CanvasTexture_hyk8p")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(1034, 28)
+shape = SubResource("CircleShape2D_k2fmo")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(1034, 24)
+scale = Vector2(1.0625, 1.05469)
+texture = ExtResource("1_hyk8p")
