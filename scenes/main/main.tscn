@@ -1,41 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb5dp70v7xfkv"]
+[gd_scene load_steps=5 format=3 uid="uid://bb5dp70v7xfkv"]
 
-[ext_resource type="Texture2D" uid="uid://bm5ktyys2yl0c" path="res://icon.svg" id="1_hyk8p"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vom5j"]
-size = Vector2(1156, 125)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iuonh"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_hyk8p"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_k2fmo"]
-radius = 61.0328
+[ext_resource type="PackedScene" uid="uid://7upbxtimdqgd" path="res://scenes/player/Player.tscn" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://ckp1bv4xor864" path="res://scripts/spawner.gd" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://dkwwosg688q7p" path="res://scenes/obstacles/Obstacle.tscn" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://dnfv0mm3n72m3" path="res://scenes/ui/GameOver.tscn" id="4_l3cfh"]
 
 [node name="Main" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 350.0
+offset_right = 450.0
+offset_bottom = 650.0
+color = Color(1.10701e-06, 0.60578, 0.15612, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(564.5, 566.5)
-rotation = -0.15708
-shape = SubResource("RectangleShape2D_vom5j")
-debug_color = Color(0.705983, 0.274123, 0.992792, 0.42)
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 450.0
+offset_right = 550.0
+offset_bottom = 650.0
+color = Color(0.227451, 0.407843, 0.156863, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-material = SubResource("CanvasItemMaterial_iuonh")
-position = Vector2(572.5, 566.5)
-rotation = -0.15708
-scale = Vector2(-1171, 95)
-texture = SubResource("CanvasTexture_hyk8p")
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 250.0
+offset_right = 350.0
+offset_bottom = 650.0
+color = Color(0.239216, 0.337255, 0.156863, 1)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("2_iuonh")
+obstacle_scene = ExtResource("3_k2fmo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(1034, 28)
-shape = SubResource("CircleShape2D_k2fmo")
+[node name="Player" parent="." instance=ExtResource("1_hyk8p")]
+position = Vector2(20, 412)
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(1034, 24)
-scale = Vector2(1.0625, 1.05469)
-texture = ExtResource("1_hyk8p")
+[node name="GameOverUI" parent="." instance=ExtResource("4_l3cfh")]

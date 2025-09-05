@@ -14,3 +14,7 @@ config/name="GolEterno"
 run/main_scene="uid://bb5dp70v7xfkv"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+player=""
