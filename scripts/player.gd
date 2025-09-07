@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-var speed = 100
+var speed = 0
 var lane_x = 0  # -1 = izquierda, 0 = centro, 1 = derecha
 var lanes = [200.0, 300.0, 400.0]  # posiciones X de carriles (ajustá según tu escena)
 
 func _ready():
 	# arranca en el carril del medio
-	position = Vector2(lanes[1], 500)
+	#para que corra
+	$AnimatedSprite2D.play("run")  # nombre de la animación
+	position = Vector2(lanes[1], 350)  # arranca en el carril del medio
 
 func _physics_process(delta):
 	# movimiento automático hacia arriba

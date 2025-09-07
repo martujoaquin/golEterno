@@ -30,6 +30,5 @@ script = ExtResource("2_iuonh")
 obstacle_scene = ExtResource("3_k2fmo")
 
 [node name="Player" parent="." instance=ExtResource("1_hyk8p")]
-position = Vector2(20, 412)
 
 [node name="GameOverUI" parent="." instance=ExtResource("4_l3cfh")]
