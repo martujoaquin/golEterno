@@ -9,18 +9,21 @@
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 350.0
+offset_top = -200.0
 offset_right = 450.0
 offset_bottom = 650.0
 color = Color(1.10701e-06, 0.60578, 0.15612, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_left = 450.0
+offset_top = -200.0
 offset_right = 550.0
 offset_bottom = 650.0
 color = Color(0.227451, 0.407843, 0.156863, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 offset_left = 250.0
+offset_top = -200.0
 offset_right = 350.0
 offset_bottom = 650.0
 color = Color(0.239216, 0.337255, 0.156863, 1)
@@ -32,3 +35,6 @@ obstacle_scene = ExtResource("3_k2fmo")
 [node name="Player" parent="." instance=ExtResource("1_hyk8p")]
 
 [node name="GameOverUI" parent="." instance=ExtResource("4_l3cfh")]
+
+[node name="CameraFija" type="Camera2D" parent="."]
+position = Vector2(575, 325)

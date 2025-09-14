@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deftitvrkax7d"
-path="res://.godot/imported/16x32RunCycle-Sheet.png-a0bdc92fea16c2a26c8203d92c3f1368.ctex"
+uid="uid://c3a32icun6qvd"
+path="res://.godot/imported/idle.png-3dd7441567c73a37e88319a9003dbd9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/16x32RunCycle-Sheet.png"
-dest_files=["res://.godot/imported/16x32RunCycle-Sheet.png-a0bdc92fea16c2a26c8203d92c3f1368.ctex"]
+source_file="res://assets/art/idle.png"
+dest_files=["res://.godot/imported/idle.png-3dd7441567c73a37e88319a9003dbd9e.ctex"]
 
 [params]
 

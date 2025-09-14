@@ -18,3 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 		var game_over_ui = get_tree().current_scene.get_node("GameOverUI")
 		game_over_ui.show_game_over()
 		
+		#var player_cam = get_tree().current_scene.get_node("Player/Camera2D")
+		var fixed_cam = get_tree().current_scene.get_node("CameraFija")
+		#player_cam.clear_current()
+		fixed_cam.make_current()
