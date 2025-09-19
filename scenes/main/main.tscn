@@ -35,6 +35,11 @@ obstacle_scene = ExtResource("3_k2fmo")
 [node name="Player" parent="." instance=ExtResource("1_hyk8p")]
 
 [node name="GameOverUI" parent="." instance=ExtResource("4_l3cfh")]
+anchors_preset = 15
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CameraFija" type="Camera2D" parent="."]
 position = Vector2(575, 325)

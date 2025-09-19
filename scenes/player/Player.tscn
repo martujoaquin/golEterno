@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://7upbxtimdqgd"]
+[gd_scene load_steps=29 format=3 uid="uid://7upbxtimdqgd"]
 
 [ext_resource type="Script" uid="uid://pxv3t2nj75rd" path="res://scripts/player.gd" id="1_gfjak"]
+[ext_resource type="Texture2D" uid="uid://g0k8vsry11gc" path="res://assets/art/emote.png" id="2_7oing"]
 [ext_resource type="Texture2D" uid="uid://x7ikfhqgm3pu" path="res://assets/art/run2.png" id="4_7oing"]
 [ext_resource type="Texture2D" uid="uid://ckj8neqyq84qn" path="res://assets/art/ExAnimaciones/2.png" id="4_pn6s4"]
 [ext_resource type="Texture2D" uid="uid://drokwq47b8e73" path="res://assets/art/ExAnimaciones/3.png" id="5_7oing"]
@@ -9,6 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://c5sedaok8g7yx" path="res://assets/art/ExAnimaciones/6.png" id="8_20koh"]
 [ext_resource type="Texture2D" uid="uid://byyhmvbdptage" path="res://assets/art/jump1.png" id="8_pn6s4"]
 [ext_resource type="Texture2D" uid="uid://xot7khweeiwv" path="res://assets/art/ExAnimaciones/jump2.png" id="9_7oing"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1lr0"]
+atlas = ExtResource("2_7oing")
+region = Rect2(3, 0, 63, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro0t8"]
+atlas = ExtResource("2_7oing")
+region = Rect2(66, 0, 63, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nn5r"]
+atlas = ExtResource("2_7oing")
+region = Rect2(129, 0, 63, 65)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pn6s4"]
 atlas = ExtResource("8_pn6s4")
@@ -65,6 +78,20 @@ region = Rect2(448, 0, 64, 64)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ov1oi"]
 resource_local_to_scene = true
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1lr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro0t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nn5r")
+}],
+"loop": true,
+"name": &"emote",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 0.51,
 "texture": ExtResource("8_pn6s4")
@@ -158,15 +185,17 @@ collision_mask = 2
 script = ExtResource("1_gfjak")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(98, 124)
+position = Vector2(102, 127)
 scale = Vector2(2.26793, 2.26793)
 sprite_frames = SubResource("SpriteFrames_ov1oi")
-animation = &"jump"
+animation = &"emote"
+frame_progress = 0.306331
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(99, 148)
 shape = SubResource("CapsuleShape2D_pn6s4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -30)
+offset = Vector2(0, -60)
+limit_smoothed = true
 position_smoothing_enabled = true

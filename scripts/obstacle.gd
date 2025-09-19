@@ -13,12 +13,16 @@ func _on_body_entered(body: Node2D) -> void:
 		print("¡Chocaste contra un obstáculo!")
 		#body.queue_free()  # elimina al player (provisorio)
 		#get_tree().reload_current_scene() #vuelve a arrancar directo
+		
 		#para que salga la pantalla game over:
 		get_tree().paused = true
 		var game_over_ui = get_tree().current_scene.get_node("GameOverUI")
 		game_over_ui.show_game_over()
 		
-		#var player_cam = get_tree().current_scene.get_node("Player/Camera2D")
+		
+		#body.play_emote()  # activa el baile
+		#await get_tree().create_timer(1.5).timeout  # deja bailar 1.5 seg
+
 		var fixed_cam = get_tree().current_scene.get_node("CameraFija")
-		#player_cam.clear_current()
 		fixed_cam.make_current()
+		

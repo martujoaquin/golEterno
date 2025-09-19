@@ -3,7 +3,7 @@ extends State
 class_name Jump
 var jump_time = 0.0
 var jump_duration = 0.8
-var jump_height = 90
+var jump_height = 120
 var base_y = 0
 
 #entro en estado Jump
