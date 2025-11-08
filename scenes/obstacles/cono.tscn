@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkwwosg688q7p"]
+
+[ext_resource type="Script" uid="uid://b4nd24xeaf3si" path="res://scripts/obstacle.gd" id="1_yib2r"]
+[ext_resource type="Texture2D" uid="uid://c4sgyro5yr5i2" path="res://assets/art/cono1.png" id="2_b8w4o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bqqh7"]
+radius = 19.0
+
+[node name="Obstacle" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_yib2r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(150, 216)
+scale = Vector2(0.00957057, 0.00996167)
+texture = ExtResource("2_b8w4o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(151, 224)
+shape = SubResource("CircleShape2D_bqqh7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
