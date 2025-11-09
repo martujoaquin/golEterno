@@ -1,9 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://xu1fxxtur4gr"]
+[gd_scene load_steps=5 format=3 uid="uid://xu1fxxtur4gr"]
 
-[ext_resource type="Script" uid="uid://dmitudfaawhw0" path="res://scripts/spawnerCono.gd" id="1_kp1hu"]
-[ext_resource type="Script" uid="uid://biwtg0ogmedmb" path="res://scripts/spawnerPelota.gd" id="2_iln4m"]
-[ext_resource type="PackedScene" uid="uid://dkwwosg688q7p" path="res://scenes/obstacles/cono.tscn" id="2_k8nv3"]
-[ext_resource type="PackedScene" uid="uid://bwqatixetyyq6" path="res://scenes/obstacles/pelota.tscn" id="3_hilxh"]
+[ext_resource type="Script" uid="uid://cco6msmvwgvyw" path="res://scripts/Spawner.gd" id="1_4ivw0"]
 [ext_resource type="PackedScene" uid="uid://7upbxtimdqgd" path="res://scenes/player/Player.tscn" id="3_kp1hu"]
 [ext_resource type="PackedScene" uid="uid://dnfv0mm3n72m3" path="res://scenes/ui/GameOver.tscn" id="4_iln4m"]
 [ext_resource type="Texture2D" uid="uid://7hn0hpay5j7k" path="res://assets/art/ciudad.png" id="9_hilxh"]
@@ -12,13 +9,15 @@
 
 [node name="SpawnerCono" type="Node2D" parent="."]
 z_index = 1
-script = ExtResource("1_kp1hu")
-obstacle_scene = ExtResource("2_k8nv3")
+script = ExtResource("1_4ivw0")
+
+[node name="SpawnTimer" type="Timer" parent="SpawnerCono"]
 
 [node name="SpawnerPelota" type="Node2D" parent="."]
 z_index = 1
-script = ExtResource("2_iln4m")
-obstacle_scene = ExtResource("3_hilxh")
+script = ExtResource("1_4ivw0")
+
+[node name="SpawnTimer" type="Timer" parent="SpawnerPelota"]
 
 [node name="Player" parent="." instance=ExtResource("3_kp1hu")]
 z_index = 2
@@ -37,3 +36,6 @@ position = Vector2(575, 325)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(550, 425)
 texture = ExtResource("9_hilxh")
+
+[connection signal="timeout" from="SpawnerCono/SpawnTimer" to="SpawnerCono" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="SpawnerPelota/SpawnTimer" to="SpawnerPelota" method="_on_spawn_timer_timeout"]

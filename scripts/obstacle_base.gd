@@ -1,11 +1,16 @@
 extends Area2D
+class_name ObstacleBase
 
-var speed = 200
+@export var speed: float = 140.0  # arrancamos tranqui
+@export var despawn_y: float = 900.0  # cuando sale de la pantalla
+var lane_idx: int = -1 
 
-func _physics_process(delta):
+func _ready() -> void:
+	add_to_group("obstacles")
+
+func _physics_process(delta: float) -> void:
 	position.y += speed * delta
-	# si se va de la pantalla, borrarlo
-	if position.y > 700:
+	if global_position.y > despawn_y:
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
@@ -23,6 +28,6 @@ func _on_body_entered(body: Node2D) -> void:
 		#body.play_emote()  # activa el baile
 		#await get_tree().create_timer(1.5).timeout  # deja bailar 1.5 seg
 
-		var fixed_cam = get_tree().current_scene.get_node("CameraFija")
-		fixed_cam.make_current()
+		#var fixed_cam = get_tree().current_scene.get_node("CameraFija")
+		#fixed_cam.make_current()
 		
