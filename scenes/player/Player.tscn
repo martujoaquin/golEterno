@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://7upbxtimdqgd"]
+[gd_scene load_steps=30 format=3 uid="uid://7upbxtimdqgd"]
 
 [ext_resource type="Script" uid="uid://coryn1gypk5pe" path="res://scripts/player.gd" id="1_7oing"]
 [ext_resource type="Texture2D" uid="uid://g0k8vsry11gc" path="res://assets/art/emote.png" id="2_7oing"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c5sedaok8g7yx" path="res://assets/art/ExAnimaciones/6.png" id="8_20koh"]
 [ext_resource type="Texture2D" uid="uid://byyhmvbdptage" path="res://assets/art/jump1.png" id="8_pn6s4"]
 [ext_resource type="Texture2D" uid="uid://xot7khweeiwv" path="res://assets/art/ExAnimaciones/jump2.png" id="9_7oing"]
+[ext_resource type="AudioStream" uid="uid://danpqvojc5kvs" path="res://assets/sounds/laserRetro_000.ogg" id="11_5stf6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1lr0"]
 atlas = ExtResource("2_7oing")
@@ -200,3 +201,7 @@ offset = Vector2(0, -60)
 zoom = Vector2(1.3, 1.3)
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="Salto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_5stf6")
+volume_db = -15.0

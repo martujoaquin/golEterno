@@ -31,3 +31,6 @@ func play_animation(anim_name: String):
 
 func play_emote():
 	$AnimatedSprite2D.play("emote") 
+
+func play_sound():
+	$Salto.play()

@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpnddlm0upd5m"]
+
+[ext_resource type="Texture2D" uid="uid://clv77tkxotg57" path="res://assets/art/fondoMenu.png" id="1_0dynd"]
+[ext_resource type="Script" uid="uid://di8vjf8t78bgy" path="res://scripts/ui/menu.gd" id="1_gcpqa"]
+[ext_resource type="FontFile" uid="uid://byxas4ch6clbw" path="res://assets/fonts/KAMIKZOM.ttf" id="2_vhthp"]
+[ext_resource type="PackedScene" uid="uid://17suisqnlmkj" path="res://scenes/ui/baile.tscn" id="5_l8juw"]
+[ext_resource type="PackedScene" uid="uid://co8pdl1xk3qpa" path="res://scenes/ui/pelota_pica.tscn" id="5_ngvy7"]
+[ext_resource type="AudioStream" uid="uid://d13f2a66dv5ak" path="res://assets/sounds/future-bass-hot-night-111447.mp3" id="6_ngvy7"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_gcpqa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1430, 782)
+texture = ExtResource("1_0dynd")
+
+[node name="Titulo" type="Label" parent="."]
+offset_left = 880.0
+offset_top = 94.0
+offset_right = 1967.0
+offset_bottom = 420.0
+theme_override_colors/font_color = Color(0.791999, 0.791999, 0.791999, 1)
+theme_override_colors/font_shadow_color = Color(0.162066, 0.162066, 0.162066, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 25
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_vhthp")
+theme_override_font_sizes/font_size = 250
+text = "G   l Etern   "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="canchas" type="Button" parent="."]
+offset_left = 487.0
+offset_top = 617.0
+offset_right = 841.0
+offset_bottom = 796.0
+focus_neighbor_left = NodePath("../ciudad")
+focus_neighbor_right = NodePath("../ciudad")
+focus_neighbor_bottom = NodePath("../exit")
+focus_next = NodePath("../ciudad")
+focus_previous = NodePath("../ciudad")
+theme_override_colors/font_color = Color(0.792157, 0.792157, 0.792157, 1)
+theme_override_fonts/font = ExtResource("2_vhthp")
+theme_override_font_sizes/font_size = 100
+text = "CANCHA"
+
+[node name="ciudad" type="Button" parent="."]
+offset_left = 2055.0
+offset_top = 651.0
+offset_right = 2409.0
+offset_bottom = 830.0
+focus_neighbor_left = NodePath("../canchas")
+focus_neighbor_right = NodePath("../canchas")
+focus_neighbor_bottom = NodePath("../exit")
+focus_next = NodePath("../canchas")
+focus_previous = NodePath("../canchas")
+theme_override_colors/font_color = Color(0.792157, 0.792157, 0.792157, 1)
+theme_override_fonts/font = ExtResource("2_vhthp")
+theme_override_font_sizes/font_size = 100
+text = "CIUDAD"
+
+[node name="exit" type="Button" parent="."]
+offset_left = 1244.0
+offset_top = 1219.0
+offset_right = 1598.0
+offset_bottom = 1398.0
+focus_neighbor_left = NodePath("../canchas")
+focus_neighbor_top = NodePath("../canchas")
+focus_neighbor_right = NodePath("../ciudad")
+focus_next = NodePath("../ciudad")
+focus_previous = NodePath("../canchas")
+theme_override_colors/font_color = Color(0.792157, 0.792157, 0.792157, 1)
+theme_override_fonts/font = ExtResource("2_vhthp")
+theme_override_font_sizes/font_size = 100
+text = "SALIR"
+
+[node name="PelotaPica" parent="." instance=ExtResource("5_ngvy7")]
+position = Vector2(790, -147)
+
+[node name="PelotaPica2" parent="." instance=ExtResource("5_ngvy7")]
+position = Vector2(1698, -147)
+
+[node name="Baile" parent="." instance=ExtResource("5_l8juw")]
+visible = false
+position = Vector2(1312, 953)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ngvy7")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="pressed" from="canchas" to="." method="_on_canchas_pressed"]
+[connection signal="pressed" from="ciudad" to="." method="_on_ciudad_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

@@ -10,8 +10,8 @@ const OBSTACLE_SCENES := [
 @export var LANES: Array[float] = [200.0, 400.0, 600.0]
 
 # Intervalos de aparición (segundos)
-@export var min_interval: float = 1.4
-@export var max_interval: float = 2.2
+@export var min_interval: float = 2.5
+@export var max_interval: float = 3.5
 
 # Posición Y inicial (aparecen desde arriba)
 @export var spawn_y: float = -1000

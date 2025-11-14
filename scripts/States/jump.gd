@@ -11,6 +11,7 @@ func enter(character):
 	#reproducir animacion salto
 	#print("Animaciones disponibles: ", character.get_node("AnimatedSprite2D").sprite_frames.get_animation_names())
 	character.play_animation("jump")
+	character.play_sound()
 	jump_time = 0.0
 	base_y = character.position.y
 	

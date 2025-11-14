@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://co8pdl1xk3qpa"]
+
+[ext_resource type="Script" uid="uid://28dq8kod4w3b" path="res://scripts/ui/pelota_pica.gd" id="1_fx88q"]
+[ext_resource type="Texture2D" uid="uid://y6g6xb28pth4" path="res://assets/art/pelotas.png" id="1_gbqjp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx88q"]
+atlas = ExtResource("1_gbqjp")
+region = Rect2(186, 0, 497, 1566)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8sjm"]
+atlas = ExtResource("1_gbqjp")
+region = Rect2(683, 0, 497, 1566)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqq3f"]
+atlas = ExtResource("1_gbqjp")
+region = Rect2(1180, 0, 497, 1566)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikgys"]
+atlas = ExtResource("1_gbqjp")
+region = Rect2(1677, 0, 497, 1566)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_herdb"]
+atlas = ExtResource("1_gbqjp")
+region = Rect2(2174, 0, 497, 1566)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxkr5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx88q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8sjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqq3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikgys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_herdb")
+}],
+"loop": true,
+"name": &"pica",
+"speed": 5.0
+}]
+
+[node name="PelotaPica" type="Node2D"]
+script = ExtResource("1_fx88q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(307, 405)
+scale = Vector2(0.322938, 0.322938)
+sprite_frames = SubResource("SpriteFrames_yxkr5")
+animation = &"pica"
+frame_progress = 0.128771
