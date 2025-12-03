@@ -22,3 +22,7 @@ GLOBAL="*res://scripts/global.gd"
 [global_group]
 
 player=""
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

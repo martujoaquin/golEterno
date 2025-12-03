@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xu1fxxtur4gr"]
+[gd_scene load_steps=13 format=3 uid="uid://xu1fxxtur4gr"]
 
 [ext_resource type="Script" uid="uid://cco6msmvwgvyw" path="res://scripts/Spawner.gd" id="1_4ivw0"]
 [ext_resource type="Script" uid="uid://cgvyj5hb4kkx7" path="res://scripts/nivel.gd" id="1_slt22"]
@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://drp6dof8pyxqu" path="res://assets/art/marcador.png" id="6_kp1hu"]
 [ext_resource type="FontFile" uid="uid://beq5aieqak874" path="res://assets/fonts/OpenSans-Medium.ttf" id="7_iln4m"]
 [ext_resource type="FontFile" uid="uid://cxjgkcay2yo1q" path="res://assets/fonts/OpenSans-Bold.ttf" id="8_iln4m"]
-[ext_resource type="Texture2D" uid="uid://7hn0hpay5j7k" path="res://assets/art/ciudad.png" id="9_hilxh"]
 [ext_resource type="Script" uid="uid://da5g61ot8hdme" path="res://scripts/medallas/spawner_medalla.gd" id="9_xyw2i"]
 [ext_resource type="PackedScene" uid="uid://cwc77gxf1258d" path="res://scenes/obstacles/coin.tscn" id="10_s8vi6"]
 [ext_resource type="AudioStream" uid="uid://cfd1witcmosci" path="res://assets/sounds/sport-epic-race-loop-292071.mp3" id="11_vd78r"]
 [ext_resource type="AudioStream" uid="uid://74ic1nua0ix5" path="res://assets/sounds/cricket-sport-19432.mp3" id="12_3lgjc"]
+[ext_resource type="Script" uid="uid://dd07hkud4hnq" path="res://scripts/parallax_background.gd" id="12_vd78r"]
+[ext_resource type="Texture2D" uid="uid://d38xnp65md00" path="res://assets/art/ciudad1.png" id="13_3lgjc"]
 
 [node name="Lvl1-city" type="Node2D"]
 script = ExtResource("1_slt22")
@@ -32,10 +33,6 @@ z_index = 2
 
 [node name="CameraFija" type="Camera2D" parent="."]
 position = Vector2(575, 325)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(550, 425)
-texture = ExtResource("9_hilxh")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 0
@@ -138,10 +135,10 @@ anchor_left = 0.5
 anchor_top = 0.474
 anchor_right = 0.52
 anchor_bottom = 0.728
-offset_left = -312.0
-offset_top = 8.84796
-offset_right = 431.96
-offset_bottom = 9.25598
+offset_left = -315.0
+offset_top = -146.152
+offset_right = 428.96
+offset_bottom = -145.744
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.768627, 0, 0, 1)
@@ -153,6 +150,17 @@ vertical_alignment = 1
 justification_flags = 171
 clip_text = true
 uppercase = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("12_vd78r")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 1566)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(550, 425)
+texture = ExtResource("13_3lgjc")
 
 [connection signal="timeout" from="SpawnerCono/SpawnTimer" to="SpawnerCono" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="SpawnerPelota/SpawnTimer" to="SpawnerPelota" method="_on_spawn_timer_timeout"]

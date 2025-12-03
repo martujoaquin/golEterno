@@ -40,8 +40,10 @@ func _on_dificultad_timeout() -> void:
 func juego_terminado():
 	GLOBAL.juego_terminado = true
 	$GameOver.visible = true
-	await get_tree().create_timer(2).timeout
-	get_tree().quit()
+	await get_tree().create_timer(3).timeout
+	#get_tree().change_scene_to_file("res://scenes/ui/Menu.tscn")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/ui/Menu.tscn")
 	
 func _on_puntaje_timer_timeout() -> void:
 	aumenta_puntaje()

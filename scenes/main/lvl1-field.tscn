@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bb5dp70v7xfkv"]
+[gd_scene load_steps=13 format=3 uid="uid://bb5dp70v7xfkv"]
 
 [ext_resource type="Script" uid="uid://cco6msmvwgvyw" path="res://scripts/Spawner.gd" id="1_1lp7h"]
 [ext_resource type="Script" uid="uid://cgvyj5hb4kkx7" path="res://scripts/nivel.gd" id="1_fq0an"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://drp6dof8pyxqu" path="res://assets/art/marcador.png" id="6_x7gfc"]
 [ext_resource type="FontFile" uid="uid://beq5aieqak874" path="res://assets/fonts/OpenSans-Medium.ttf" id="7_4bthi"]
 [ext_resource type="FontFile" uid="uid://cxjgkcay2yo1q" path="res://assets/fonts/OpenSans-Bold.ttf" id="8_3d3cv"]
-[ext_resource type="Texture2D" uid="uid://cxuiuhihyjegy" path="res://assets/art/cancha.png" id="8_4bthi"]
 [ext_resource type="Script" uid="uid://da5g61ot8hdme" path="res://scripts/medallas/spawner_medalla.gd" id="9_b6uuc"]
 [ext_resource type="PackedScene" uid="uid://cwc77gxf1258d" path="res://scenes/obstacles/coin.tscn" id="10_un5nc"]
+[ext_resource type="Script" uid="uid://dd07hkud4hnq" path="res://scripts/parallax_background.gd" id="11_2fl2i"]
+[ext_resource type="Texture2D" uid="uid://dwrn51gqivuh7" path="res://assets/art/cancha1.png" id="11_4dqx3"]
 [ext_resource type="AudioStream" uid="uid://cfd1witcmosci" path="res://assets/sounds/sport-epic-race-loop-292071.mp3" id="11_un5nc"]
 [ext_resource type="AudioStream" uid="uid://74ic1nua0ix5" path="res://assets/sounds/cricket-sport-19432.mp3" id="12_4dqx3"]
 
@@ -34,10 +35,6 @@ z_index = 2
 
 [node name="CameraFija" type="Camera2D" parent="."]
 position = Vector2(575, 325)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(550, 425)
-texture = ExtResource("8_4bthi")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 0
@@ -155,6 +152,17 @@ vertical_alignment = 1
 justification_flags = 171
 clip_text = true
 uppercase = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("11_2fl2i")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 1566)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(550, 425)
+texture = ExtResource("11_4dqx3")
 
 [connection signal="timeout" from="SpawnerCono/SpawnTimer" to="SpawnerCono" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="SpawnerPelota/SpawnTimer" to="SpawnerPelota" method="_on_spawn_timer_timeout"]
