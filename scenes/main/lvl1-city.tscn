@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://xu1fxxtur4gr"]
+[gd_scene load_steps=14 format=3 uid="uid://xu1fxxtur4gr"]
 
 [ext_resource type="Script" uid="uid://cco6msmvwgvyw" path="res://scripts/Spawner.gd" id="1_4ivw0"]
 [ext_resource type="Script" uid="uid://cgvyj5hb4kkx7" path="res://scripts/nivel.gd" id="1_slt22"]
 [ext_resource type="PackedScene" uid="uid://7upbxtimdqgd" path="res://scenes/player/Player.tscn" id="3_kp1hu"]
+[ext_resource type="FontFile" uid="uid://byxas4ch6clbw" path="res://assets/fonts/KAMIKZOM.ttf" id="6_3lgjc"]
 [ext_resource type="Texture2D" uid="uid://drp6dof8pyxqu" path="res://assets/art/marcador.png" id="6_kp1hu"]
 [ext_resource type="FontFile" uid="uid://beq5aieqak874" path="res://assets/fonts/OpenSans-Medium.ttf" id="7_iln4m"]
 [ext_resource type="FontFile" uid="uid://cxjgkcay2yo1q" path="res://assets/fonts/OpenSans-Bold.ttf" id="8_iln4m"]
@@ -38,16 +39,16 @@ position = Vector2(575, 325)
 layer = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="UI"]
-position = Vector2(505.246, 337.625)
+position = Vector2(509.246, 206.625)
 scale = Vector2(0.677302, 0.73806)
 texture = ExtResource("6_kp1hu")
 
 [node name="Puntos" type="Label" parent="UI"]
 clip_contents = true
-offset_left = 181.0
-offset_top = 341.0
-offset_right = 288.0
-offset_bottom = 421.0
+offset_left = 185.0
+offset_top = 210.0
+offset_right = 292.0
+offset_bottom = 290.0
 theme_override_colors/font_color = Color(0.982343, 0.982342, 0.982342, 1)
 theme_override_fonts/font = ExtResource("7_iln4m")
 theme_override_font_sizes/font_size = 50
@@ -56,10 +57,10 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Monedas" type="Label" parent="UI"]
-offset_left = 715.0
-offset_top = 341.0
-offset_right = 822.0
-offset_bottom = 410.0
+offset_left = 719.0
+offset_top = 210.0
+offset_right = 826.0
+offset_bottom = 279.0
 theme_override_colors/font_color = Color(0.982343, 0.982342, 0.982342, 1)
 theme_override_fonts/font = ExtResource("7_iln4m")
 theme_override_font_sizes/font_size = 50
@@ -68,10 +69,10 @@ horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TituloPuntos" type="Label" parent="UI"]
-offset_left = 119.0
-offset_top = 281.0
-offset_right = 334.0
-offset_bottom = 344.0
+offset_left = 123.0
+offset_top = 150.0
+offset_right = 338.0
+offset_bottom = 213.0
 theme_override_colors/font_color = Color(0.982343, 0.982342, 0.982342, 1)
 theme_override_fonts/font = ExtResource("7_iln4m")
 theme_override_font_sizes/font_size = 40
@@ -79,10 +80,10 @@ text = "PUNTOS:"
 metadata/_edit_use_anchors_ = true
 
 [node name="TituloMedallas" type="Label" parent="UI"]
-offset_left = 684.0
-offset_top = 281.0
-offset_right = 892.0
-offset_bottom = 336.0
+offset_left = 688.0
+offset_top = 150.0
+offset_right = 903.0
+offset_bottom = 205.0
 theme_override_colors/font_color = Color(0.982343, 0.982342, 0.982342, 1)
 theme_override_fonts/font = ExtResource("7_iln4m")
 theme_override_font_sizes/font_size = 40
@@ -93,14 +94,44 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = -1
 anchor_right = 0.119201
 anchor_bottom = 0.0689259
-offset_left = 375.0
-offset_top = 268.0
-offset_right = 374.68
-offset_bottom = 292.336
+offset_left = 379.0
+offset_top = 137.0
+offset_right = 378.68
+offset_bottom = 161.336
 theme_override_fonts/font = ExtResource("7_iln4m")
 theme_override_font_sizes/font_size = 50
 text = "0"
 metadata/_edit_use_anchors_ = true
+
+[node name="ObjetivoLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.0
+offset_top = 16.0
+offset_right = 14.0
+offset_bottom = 82.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_3lgjc")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ObjetivoCompletado" type="Label" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_3lgjc")
+theme_override_font_sizes/font_size = 50
 
 [node name="PuntajeTimer" type="Timer" parent="."]
 autostart = true
@@ -135,10 +166,10 @@ anchor_left = 0.5
 anchor_top = 0.474
 anchor_right = 0.52
 anchor_bottom = 0.728
-offset_left = -315.0
-offset_top = -146.152
-offset_right = 428.96
-offset_bottom = -145.744
+offset_left = -412.0
+offset_top = -73.152
+offset_right = 331.96
+offset_bottom = -72.744
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.768627, 0, 0, 1)

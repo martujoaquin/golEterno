@@ -11,14 +11,14 @@
 script = ExtResource("1_gcpqa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1430, 782)
+position = Vector2(1435, 788)
 texture = ExtResource("1_0dynd")
 
 [node name="Titulo" type="Label" parent="."]
-offset_left = 880.0
-offset_top = 94.0
-offset_right = 1967.0
-offset_bottom = 420.0
+offset_left = 837.0
+offset_top = 104.0
+offset_right = 2034.0
+offset_bottom = 430.0
 theme_override_colors/font_color = Color(0.791999, 0.791999, 0.791999, 1)
 theme_override_colors/font_shadow_color = Color(0.162066, 0.162066, 0.162066, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -33,10 +33,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="canchas" type="Button" parent="."]
-offset_left = 487.0
-offset_top = 617.0
-offset_right = 841.0
-offset_bottom = 796.0
+offset_left = 565.0
+offset_top = 657.0
+offset_right = 919.0
+offset_bottom = 836.0
 focus_neighbor_left = NodePath("../ciudad")
 focus_neighbor_right = NodePath("../ciudad")
 focus_neighbor_bottom = NodePath("../exit")
@@ -48,10 +48,10 @@ theme_override_font_sizes/font_size = 100
 text = "CANCHA"
 
 [node name="ciudad" type="Button" parent="."]
-offset_left = 2055.0
-offset_top = 651.0
-offset_right = 2409.0
-offset_bottom = 830.0
+offset_left = 2030.0
+offset_top = 657.0
+offset_right = 2384.0
+offset_bottom = 836.0
 focus_neighbor_left = NodePath("../canchas")
 focus_neighbor_right = NodePath("../canchas")
 focus_neighbor_bottom = NodePath("../exit")
@@ -63,10 +63,10 @@ theme_override_font_sizes/font_size = 100
 text = "CIUDAD"
 
 [node name="exit" type="Button" parent="."]
-offset_left = 1244.0
-offset_top = 1219.0
-offset_right = 1598.0
-offset_bottom = 1398.0
+offset_left = 1267.0
+offset_top = 1170.0
+offset_right = 1621.0
+offset_bottom = 1349.0
 focus_neighbor_left = NodePath("../canchas")
 focus_neighbor_top = NodePath("../canchas")
 focus_neighbor_right = NodePath("../ciudad")
@@ -78,10 +78,10 @@ theme_override_font_sizes/font_size = 100
 text = "SALIR"
 
 [node name="PelotaPica" parent="." instance=ExtResource("5_ngvy7")]
-position = Vector2(790, -147)
+position = Vector2(744, -129)
 
 [node name="PelotaPica2" parent="." instance=ExtResource("5_ngvy7")]
-position = Vector2(1698, -147)
+position = Vector2(1644, -129)
 
 [node name="Baile" parent="." instance=ExtResource("5_l8juw")]
 visible = false

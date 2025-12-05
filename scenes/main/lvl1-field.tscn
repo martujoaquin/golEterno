@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bb5dp70v7xfkv"]
+[gd_scene load_steps=14 format=3 uid="uid://bb5dp70v7xfkv"]
 
 [ext_resource type="Script" uid="uid://cco6msmvwgvyw" path="res://scripts/Spawner.gd" id="1_1lp7h"]
 [ext_resource type="Script" uid="uid://cgvyj5hb4kkx7" path="res://scripts/nivel.gd" id="1_fq0an"]
 [ext_resource type="PackedScene" uid="uid://7upbxtimdqgd" path="res://scenes/player/Player.tscn" id="1_hyk8p"]
+[ext_resource type="FontFile" uid="uid://byxas4ch6clbw" path="res://assets/fonts/KAMIKZOM.ttf" id="6_2fl2i"]
 [ext_resource type="Texture2D" uid="uid://drp6dof8pyxqu" path="res://assets/art/marcador.png" id="6_x7gfc"]
 [ext_resource type="FontFile" uid="uid://beq5aieqak874" path="res://assets/fonts/OpenSans-Medium.ttf" id="7_4bthi"]
 [ext_resource type="FontFile" uid="uid://cxjgkcay2yo1q" path="res://assets/fonts/OpenSans-Bold.ttf" id="8_3d3cv"]
@@ -103,6 +104,34 @@ theme_override_fonts/font = ExtResource("7_4bthi")
 theme_override_font_sizes/font_size = 50
 text = "0"
 metadata/_edit_use_anchors_ = true
+
+[node name="ObjetivoLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_top = 20.0
+offset_right = 0.5
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_2fl2i")
+theme_override_font_sizes/font_size = 50
+
+[node name="ObjetivoCompletado" type="Label" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_2fl2i")
+theme_override_font_sizes/font_size = 50
 
 [node name="PuntajeTimer" type="Timer" parent="."]
 autostart = true

@@ -1,7 +1,14 @@
 extends Node2D
 
+@onready var objetivo_label: Label = $UI/ObjetivoLabel
+@onready var objetivo_completado: Label = $UI/ObjetivoCompletado
+
+var tiempo_objetivo: float = 20.0
+var tiempo_actual: float = 0.0
+var objetivo_ya_cumplido: bool = false
+var nivel_actual: int = 1
+
 func _ready():
-	
 	GLOBAL.jugador = $Player
 	#GLOBAL.jugador = $Player
 	GLOBAL.juego_terminado = false
@@ -9,6 +16,8 @@ func _ready():
 	GLOBAL.nivel_dificultad = 0
 	GLOBAL.tiempo = 0
 	GLOBAL.medallas = 0
+	objetivo_label.text = "NIVEL 1: Llegar a 20 segundos"
+	objetivo_completado.visible = false
 
 
 func aumenta_puntaje():
@@ -36,6 +45,8 @@ func _on_dificultad_timeout() -> void:
 	$SpawnerPelota.min_interval = nuevo_min
 	$SpawnerPelota.max_interval = nuevo_max
 
+func _process(delta:float) -> void:
+	_actualizar_objetivos(delta)
 
 func juego_terminado():
 	GLOBAL.juego_terminado = true
@@ -48,3 +59,70 @@ func juego_terminado():
 func _on_puntaje_timer_timeout() -> void:
 	aumenta_puntaje()
 	imprime_tiempo()
+
+func _actualizar_objetivos(delta: float) -> void:
+	if GLOBAL.juego_terminado:
+		return
+	
+	tiempo_actual += delta
+	
+	#nivel 1 -> llegar a 20 seg
+	if nivel_actual == 1:
+		if objetivo_ya_cumplido == false:
+			if tiempo_actual >= 20.0:
+				objetivo_ya_cumplido = true
+				_mostrar_cartel_objetivo_completado()
+				objetivo_label.text = "" 
+		return
+	
+	#nivel 2 -> 3 medallas
+	if nivel_actual == 2:
+		if GLOBAL.medallas >= 3 and objetivo_ya_cumplido == false:
+			objetivo_ya_cumplido = true
+			_mostrar_cartel_objetivo_completado()
+			objetivo_label.text = ""
+		return
+		
+	#nivel 3 -> llegar a 50 seg
+	if nivel_actual == 3:
+		if objetivo_ya_cumplido == false:
+			if tiempo_actual >= 50.0:
+				objetivo_ya_cumplido = true
+				_mostrar_cartel_objetivo_completado()
+				objetivo_label.text = ""
+			return
+	
+	#nivel 4 -> llegar a 180 puntos
+	if nivel_actual == 4:
+		if objetivo_ya_cumplido == false and GLOBAL.puntaje >= 180:
+				objetivo_ya_cumplido = true
+				objetivo_label.text = ""
+				_mostrar_cartel_objetivo_completado()
+		return
+			
+	
+func _mostrar_cartel_objetivo_completado() -> void:
+	objetivo_completado.text = "NIVEL COMPLETADO"
+	objetivo_completado.visible = true
+	
+	await get_tree().create_timer(2.0).timeout
+	objetivo_completado.visible = false
+	
+	#nuevo nivel
+	nivel_actual += 1
+	objetivo_ya_cumplido = false
+	
+	match nivel_actual:
+		2:
+			objetivo_label.text = "NIVEL 2: Recolectar 3 medallas"
+		3: 
+			objetivo_label.text = "NIVEL 3: Llegar a 50 segundos"
+		4:
+			objetivo_label.text = "NIVEL 4: Hacer 180 puntos"
+		5:
+			objetivo_label.text = "TODOS LOS OBJETIVOS COMPLETADOS"
+			# si querés, dejamos bloqueado:
+			objetivo_ya_cumplido = true
+		_:
+			objetivo_label.text = ""
+		
